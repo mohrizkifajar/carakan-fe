@@ -126,7 +126,7 @@ watchEffect(() => {
 		}
 		.padding {
 			width: 100%;
-			padding: 12px;
+			padding: 12px 0;
 		}
 		.video-wrapper {
 			height: 70vh;
