@@ -15,6 +15,7 @@ const toggleMenu = computed(() => {
 		<nav>
 			<RouterLink to="/" class="nav-link">Home</RouterLink>
 			<RouterLink to="/about-us" class="nav-link">About Us</RouterLink>
+			<RouterLink to="/crop" class="nav-link">Crop</RouterLink>
 			<div class="actions">
 				<Button to="/" class="secondary alternate" small>Learn</Button>
 				<Button to="/convert" class="primary alternate" small>Convert</Button>
