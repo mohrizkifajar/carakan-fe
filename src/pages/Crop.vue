@@ -48,7 +48,11 @@ watchEffect(() => {
 		align-items: center;
 		gap: 24px;
 		width: 50%;
-		padding: 32px;
+		padding: 24px;
+		border-radius: 8px;
+		background-color: var(--secondary-color);
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+		overflow: hidden;
 	}
 	.crop-wrapper {
 		/*display: flex;
@@ -56,11 +60,6 @@ watchEffect(() => {
 		align-items: center;
 		gap: 24px;*/
 		width: 100%;
-		padding: 24px;
-		border-radius: 8px;
-		background-color: var(--secondary-color);
-		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-		overflow: hidden;
 	}
 	.image {
 		height: 240px;
@@ -85,6 +84,7 @@ watchEffect(() => {
 		.padding {
 			width: 100%;
 			padding: 0;
+			padding-bottom: 24px;
 		}
 		.crop-wrapper {
       padding: 0px;
