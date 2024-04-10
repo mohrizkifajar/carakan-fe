@@ -2,7 +2,6 @@
 import { computed, ref, watchEffect, onMounted } from 'vue'
 import { useDevicesList, useUserMedia } from '@vueuse/core'
 import Content from '../components/Content.vue'
-import Cropper from 'cropperjs'
 
 const { videoInputs: cameras } = useDevicesList({
 	requestPermission: true,
@@ -24,7 +23,6 @@ const { stream, start } = useUserMedia({
 	},
 })
 
-
 function take() {
 	const ctx = canvas.value.getContext('2d')
 	ctx.fillStyle = '#fff';
@@ -37,14 +35,6 @@ function take() {
 }
 
 start()
-
-watchEffect(() => {
-	if (image.value) {
-		const cropper = new Cropper(image.value, {
-		  aspectRatio: 9 / 16,
-		})
-	}
-})
 
 watchEffect(() => {
 	if (video.value) {
@@ -68,7 +58,7 @@ watchEffect(() => {
 			<div class="padding">
 				<div class="captured">
 					<canvas ref="canvas" width="720" height="1280"></canvas>
-					<img ref="image" src="" alt="" />
+					<img ref="image" alt="" />
 				</div>
 			</div>
 		</div>
@@ -140,6 +130,7 @@ watchEffect(() => {
 		}
 		.video-wrapper {
 			height: 70vh;
+      padding: 16px;
 		}
 		video {
 			width: 100%;
