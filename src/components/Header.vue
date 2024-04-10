@@ -31,6 +31,7 @@ const toggleMenu = computed(() => {
 		<div v-if="show" class="responsive-nav">
 			<RouterLink to="/" class="nav-link secondary">Home</RouterLink>
 			<RouterLink to="/about-us" class="nav-link secondary">About Us</RouterLink>
+			<RouterLink to="/crop" class="nav-link secondary">Crop</RouterLink>
 			<div class="responsive-nav-actions">
 				<Button to="/" class="secondary full" small>Learn</Button>
 				<Button to="/convert" class="primary full" small>Convert</Button>

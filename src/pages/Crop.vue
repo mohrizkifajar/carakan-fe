@@ -26,11 +26,11 @@ watchEffect(() => {
 			<div class="padding">
 				<div class="crop-wrapper">
 					<img class="image" ref="image" src="/saved.png" alt="" />
-
-					<button @click="crop">
-						<img src="/crop.png" />
-					</button>
 				</div>
+
+				<button @click="crop">
+					<img src="/crop.png" />
+				</button>
 			</div>
 		</div>
 	</Content>
@@ -43,19 +43,24 @@ watchEffect(() => {
 		min-height: 80vh;
 	}
 	.padding {
-		width: 50%;
-		padding: 32px;
-	}
-	.crop-wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 24px;
+		width: 50%;
+		padding: 32px;
+	}
+	.crop-wrapper {
+		/*display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;*/
 		width: 100%;
 		padding: 24px;
 		border-radius: 8px;
 		background-color: var(--secondary-color);
 		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+		overflow: hidden;
 	}
 	.image {
 		height: 240px;
@@ -82,10 +87,13 @@ watchEffect(() => {
 			padding: 0;
 		}
 		.crop-wrapper {
-      padding: 16px;
+      padding: 0px;
+      height: 60vh;
 		}
 		.image {
-			height: 40vh;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
 	}
 </style>
