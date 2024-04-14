@@ -24,6 +24,7 @@ const { stream, start } = useUserMedia({
 })
 
 function take() {
+	video.value.pause()
 	const ctx = canvas.value.getContext('2d')
 	ctx.fillStyle = '#fff';
 	ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
