@@ -6,6 +6,7 @@ import { image as store } from '../store/image.js'
 
 let cropper = null
 const image = ref()
+const url = ref('')
 
 async function crop() {
 	const response = await fetch('https://fajar.pythonanywhere.com/convert', {
@@ -21,7 +22,8 @@ async function crop() {
 		}),
 	})
 
-	console.log(response)
+	const data = await response.json()
+	url.value = data.data
 }
 
 watchEffect(() => {
@@ -45,6 +47,7 @@ onMounted(() => {
 
 <template>
 	<Content>
+		{{ url }}
 		<div class="container">
 			<div class="padding">
 				<div class="crop-wrapper">
