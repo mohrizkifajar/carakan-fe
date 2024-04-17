@@ -1,13 +1,32 @@
 <script setup>
-import { ref, watchEffect } from 'vue'
+import { ref, watchEffect, onMounted } from 'vue'
 import Cropper from 'cropperjs'
 import Content from '../components/Content.vue'
+import { image as store } from '../store/image.js'
 
+let cropper = null
 const image = ref()
+
+async function crop() {
+	const response = await fetch('https://fajar.pythonanywhere.com/convert', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'POST',
+		},
+		body: JSON.stringify({
+			image: cropper.getCroppedCanvas().toDataURL(),
+			filename: 'input.png',
+		}),
+	})
+
+	console.log(response)
+}
 
 watchEffect(() => {
 	if (image.value) {
-		const cropper = new Cropper(image.value, {
+		cropper = new Cropper(image.value, {
 			aspectRatio: 0,
 			viewMode: 1,
 			movable: false,
@@ -18,6 +37,10 @@ watchEffect(() => {
 		})
 	}
 })
+
+onMounted(() => {
+	image.value.src = store.get()
+})
 </script>
 
 <template>
@@ -25,7 +48,7 @@ watchEffect(() => {
 		<div class="container">
 			<div class="padding">
 				<div class="crop-wrapper">
-					<img class="image" ref="image" src="/saved.png" alt="" />
+					<img class="image" ref="image" />
 				</div>
 
 				<button @click="crop">

@@ -11,7 +11,9 @@ const toggleMenu = computed(() => {
 
 <template>
 	<header>
-		<RouterLink to="/" class="logo">LOGO</RouterLink>
+		<RouterLink to="/" class="logo">
+			<img src="/logo.png" alt="Hanacaraka" />
+		</RouterLink>
 		<nav>
 			<RouterLink to="/" class="nav-link">Home</RouterLink>
 			<RouterLink to="/about-us" class="nav-link">About Us</RouterLink>
@@ -54,10 +56,11 @@ const toggleMenu = computed(() => {
 		background-color: var(--primary-color);
 	}
 	.logo {
-		text-decoration: none;
-		font-size: 24px;
-		font-weight: 700;
-		color: #fff;
+		display: flex;
+		align-items: center;
+	}
+	.logo img {
+		height: 32px;
 	}
 	nav {
 		display: flex;
@@ -89,6 +92,9 @@ const toggleMenu = computed(() => {
 		header {
 			height: 64px;
 			padding: 0 20px;
+		}
+		.logo img {
+			height: 32px;
 		}
 		nav {
 			display: none;

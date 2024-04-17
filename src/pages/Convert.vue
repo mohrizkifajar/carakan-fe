@@ -1,7 +1,9 @@
 <script setup>
 import { computed, ref, watchEffect, onMounted } from 'vue'
 import { useDevicesList, useUserMedia } from '@vueuse/core'
+import { useRouter } from 'vue-router'
 import Content from '../components/Content.vue'
+import { image as store } from '../store/image.js'
 
 const { videoInputs: cameras } = useDevicesList({
 	requestPermission: true,
@@ -10,7 +12,8 @@ const currentCamera = computed(() => cameras.value[0]?.deviceId)
 
 const video = ref()
 const canvas = ref()
-const image = ref()
+
+const router = useRouter()
 
 const { stream, start } = useUserMedia({
 	constraints: {
@@ -32,7 +35,9 @@ function take() {
 		video.value,
 		(canvas.value.width - video.value.videoWidth) / 2,
 		(canvas.value.height - video.value.videoHeight) / 2,)
-	image.value.src = canvas.value.toDataURL()
+
+	store.set(canvas.value.toDataURL())
+	router.push('/crop')
 }
 
 start()
@@ -55,13 +60,7 @@ watchEffect(() => {
 					</button>
 				</div>
 			</div>
-
-			<div class="padding">
-				<div class="captured">
-					<canvas ref="canvas" width="720" height="1280"></canvas>
-					<img ref="image" alt="" />
-				</div>
-			</div>
+			<canvas ref="canvas" width="720" height="1280"></canvas>
 		</div>
 	</Content>
 </template>
