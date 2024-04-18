@@ -7,6 +7,7 @@ import { image as store } from '../store/image.js'
 
 let cropper = null
 const image = ref()
+const url = ref('')
 
 const router = useRouter()
 
