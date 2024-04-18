@@ -1,11 +1,14 @@
 <script setup>
 import { ref, watchEffect, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import Cropper from 'cropperjs'
 import Content from '../components/Content.vue'
 import { image as store } from '../store/image.js'
 
 let cropper = null
 const image = ref()
+
+const router = useRouter()
 
 async function crop() {
 	const response = await fetch('https://fajar.pythonanywhere.com/convert', {
@@ -21,7 +24,10 @@ async function crop() {
 		}),
 	})
 
-	console.log(response)
+	const data = await response.json()
+
+	store.set(1, data.data)
+	router.push('/result')
 }
 
 watchEffect(() => {
@@ -39,7 +45,7 @@ watchEffect(() => {
 })
 
 onMounted(() => {
-	image.value.src = store.get()
+	image.value.src = store.get(0)
 })
 </script>
 
@@ -48,12 +54,15 @@ onMounted(() => {
 		<div class="container">
 			<div class="padding">
 				<div class="crop-wrapper">
-					<img class="image" ref="image" />
-				</div>
+					<div class="crop-image">
+						<img class="image" ref="image" />
+					</div>
 
-				<button @click="crop">
-					<img src="/crop.png" />
-				</button>
+					<button @click="crop">
+						<img src="/crop.png" />
+					</button>
+				</div>
+				
 			</div>
 		</div>
 	</Content>
@@ -66,23 +75,25 @@ onMounted(() => {
 		min-height: 80vh;
 	}
 	.padding {
+		
+		width: 50%;
+		padding: 24px;
+		
+	}
+	.crop-wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 24px;
-		width: 50%;
-		padding: 24px;
+		padding: 12px;
 		border-radius: 8px;
-		background-color: var(--secondary-color);
+		background-color: var(--background-light);
 		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 		overflow: hidden;
 	}
-	.crop-wrapper {
-		/*display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 24px;*/
+	.crop-image {
 		width: 100%;
+		background-color: var(--background-light);
 	}
 	.image {
 		height: 240px;
@@ -106,10 +117,9 @@ onMounted(() => {
 		}
 		.padding {
 			width: 100%;
-			padding: 0;
-			padding-bottom: 24px;
+			padding: 0px;
 		}
-		.crop-wrapper {
+		.crop-image {
       padding: 0px;
       height: 60vh;
 		}

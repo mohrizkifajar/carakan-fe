@@ -30,12 +30,12 @@
 		color: #000;
 	}
 	.btn.secondary {
-		border: 1px solid var(--primary-color);
+		border: 1px solid var(--neutral-color);
 		background-color: transparent;
-		color: #000;
+		color: var(--neutral-color);
 	}
 	.btn.secondary:hover {
-		background-color: var(--primary-color);
+		background-color: var(--neutral-color);
 		color: #fff;
 	}
 	.btn.primary.alternate {

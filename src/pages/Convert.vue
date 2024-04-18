@@ -36,7 +36,7 @@ function take() {
 		(canvas.value.width - video.value.videoWidth) / 2,
 		(canvas.value.height - video.value.videoHeight) / 2,)
 
-	store.set(canvas.value.toDataURL())
+	store.set(0, canvas.value.toDataURL())
 	router.push('/crop')
 }
 
@@ -55,6 +55,7 @@ watchEffect(() => {
 			<div class="padding">
 				<div class="video-wrapper">
 					<video ref="video" autoplay></video>
+
 					<button @click="take">
 						<img src="/camera.png" />
 					</button>
@@ -69,7 +70,6 @@ watchEffect(() => {
 	.container {
 		display: flex;
 		width: 100%;
-		min-height: 80vh;
 	}
 	.padding {
 		width: 50%;
@@ -79,11 +79,12 @@ watchEffect(() => {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: space-between;
 		gap: 24px;
 		width: 100%;
 		padding: 24px;
 		border-radius: 8px;
-		background-color: var(--secondary-color);
+		background-color: var(--background-light);
 		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 	}
 	video {
@@ -126,18 +127,15 @@ watchEffect(() => {
 		}
 		.padding {
 			width: 100%;
-			padding: 12px 0;
+			padding: 0px;
 		}
 		.video-wrapper {
 			height: 70vh;
-      padding: 16px;
+			padding: 12px;
 		}
 		video {
 			width: 100%;
 			height: 80%;
-		}
-		.captured img {
-			/**/
 		}
 	}
 </style>

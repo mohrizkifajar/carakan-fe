@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #A985FF;
+  --primary-color: #476BFA;
+  --background-light: #DADFF2;
   --secondary-color: #F1EBFF;
+  --neutral-color: #4B4C52;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -21,7 +23,7 @@
   font-family: inherit;
 }
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   max-width: 1440px;
   width: 100%;
 }
