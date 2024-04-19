@@ -1,32 +1,19 @@
 <script setup>
 import { ref, watchEffect, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { v4 as uuid } from 'uuid'
 import Cropper from 'cropperjs'
 import Content from '../components/Content.vue'
 import { image as store } from '../store/image.js'
 
-let cropper = null
 const image = ref()
 const url = ref('')
-
+let cropper = null
 const router = useRouter()
 
-async function crop() {
-	const response = await fetch('https://fajar.pythonanywhere.com/convert', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			image: cropper.getCroppedCanvas().toDataURL(),
-			filename: uuid() + '.png',
-		}),
-	})
+async function crop(event) {
+	const cropped = cropper.getCroppedCanvas().toDataURL()
 
-	const data = await response.json()
-
-	store.set(1, data.data)
+	store.set(1, cropped)
 	router.push('/result')
 }
 
@@ -52,16 +39,14 @@ onMounted(() => {
 <template>
 	<Content>
 		<div class="container">
-			<div class="padding">
-				<div class="crop-wrapper">
-					<div class="crop-image">
-						<img class="image" ref="image" />
-					</div>
-
-					<button @click="crop">
-						<img src="/crop.png" />
-					</button>
+			<div class="crop-wrapper">
+				<div class="crop-image">
+					<img class="image" ref="image" />
 				</div>
+
+				<button @click="crop">
+					<img src="/crop.png" />
+				</button>
 			</div>
 		</div>
 	</Content>
@@ -70,19 +55,16 @@ onMounted(() => {
 <style scoped>
 	.container {
 		display: flex;
+		justify-content: center;
 		width: 100%;
-	}
-	.padding {
-		
-		width: 50%;
-		padding: 24px;
-		
 	}
 	.crop-wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 24px;
+		width: 50%;
+		height: 70vh;
 		padding: 12px;
 		border-radius: 8px;
 		background-color: var(--background-light);
@@ -91,10 +73,12 @@ onMounted(() => {
 	}
 	.crop-image {
 		width: 100%;
-		background-color: var(--background-light);
+		height: 80%;
 	}
 	.image {
-		height: 240px;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 	button {
 		display: flex;
@@ -109,22 +93,13 @@ onMounted(() => {
 		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 		cursor: pointer;
 	}
+
 	@media screen and (max-width: 640px) {
 		.container {
 			flex-direction: column;
 		}
-		.padding {
+		.crop-wrapper {
 			width: 100%;
-			padding: 0px;
-		}
-		.crop-image {
-      padding: 0px;
-      height: 60vh;
-		}
-		.image {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
 		}
 	}
 </style>

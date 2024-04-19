@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
 	<main>
 		<slot />
@@ -11,7 +7,7 @@
 <style scoped>
 	main {
 		position: relative;
-		padding: 0 64px;
+		padding: 32px 64px;
 	}
 
 	@media screen and (max-width: 640px) {

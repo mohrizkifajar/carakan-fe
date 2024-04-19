@@ -4,9 +4,9 @@ import Button from './Button.vue'
 
 const show = ref(false)
 
-const toggleMenu = computed(() => {
+function toggleMenu(event) {
 	show.value = !show.value
-})
+}
 </script>
 
 <template>
@@ -14,6 +14,7 @@ const toggleMenu = computed(() => {
 		<RouterLink to="/" class="logo">
 			<img src="/logo.png" alt="Hanacaraka" />
 		</RouterLink>
+
 		<nav>
 			<RouterLink to="/" class="nav-link">Home</RouterLink>
 			<RouterLink to="/about-us" class="nav-link">About Us</RouterLink>
@@ -24,6 +25,7 @@ const toggleMenu = computed(() => {
 				<Button to="/convert" class="primary alternate" small>Convert</Button>
 			</div>
 		</nav>
+
 		<div class="menu-toggle">
 			<img src="/close.png" alt="Close Menu" v-if="show" @click="toggleMenu" />
 			<img src="/menu.png" alt="Open Menu" v-else @click="toggleMenu" />
@@ -46,7 +48,6 @@ const toggleMenu = computed(() => {
 
 <style scoped>
 	header {
-		z-index: 10;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -124,6 +125,7 @@ const toggleMenu = computed(() => {
 		}
 		.menu-toggle {
 			display: block;
+			cursor: pointer;
 		}
 	}
 </style>

@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
 
 export const image = reactive({
-	data: ['', ''],
+	data: ['', '', ''],
 	get(index) {
 		return this.data[index]
 	},
