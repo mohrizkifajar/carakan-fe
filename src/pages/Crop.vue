@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watchEffect, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { v4 as uuid } from 'uuid'
 import Cropper from 'cropperjs'
 import Content from '../components/Content.vue'
 import { image as store } from '../store/image.js'
@@ -16,12 +17,10 @@ async function crop() {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Methods': 'POST',
 		},
 		body: JSON.stringify({
 			image: cropper.getCroppedCanvas().toDataURL(),
-			filename: 'input.png',
+			filename: uuid() + '.png',
 		}),
 	})
 
@@ -63,7 +62,6 @@ onMounted(() => {
 						<img src="/crop.png" />
 					</button>
 				</div>
-				
 			</div>
 		</div>
 	</Content>
@@ -73,7 +71,6 @@ onMounted(() => {
 	.container {
 		display: flex;
 		width: 100%;
-		min-height: 80vh;
 	}
 	.padding {
 		
