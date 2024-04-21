@@ -3,7 +3,7 @@ import { computed, ref, watchEffect, onMounted } from 'vue'
 import { useDevicesList, useUserMedia } from '@vueuse/core'
 import { useRouter } from 'vue-router'
 import Content from '../components/Content.vue'
-import { image as store } from '../store/image.js'
+import store from '../store'
 
 const video = ref(null)
 const canvas = ref(null)
@@ -35,7 +35,7 @@ function take(event) {
 		(canvas.value.height - video.value.videoHeight) / 2
 	)
 
-	store.set(0, canvas.value.toDataURL())
+	store.set('captured', canvas.value.toDataURL())
 	router.push('/crop')
 }
 
@@ -93,6 +93,7 @@ watchEffect(() => {
 	}
 	video {
 		width: 100%;
+		height: 80%;
 	}
 	button {
 		display: flex;
@@ -120,10 +121,6 @@ watchEffect(() => {
 		}
 		.video-wrapper {
 			width: 100%;
-		}
-		video {
-			width: 100%;
-			height: 80%;
 		}
 	}
 </style>

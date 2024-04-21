@@ -18,10 +18,11 @@ function toggleMenu(event) {
 		<nav>
 			<RouterLink to="/" class="nav-link">Home</RouterLink>
 			<RouterLink to="/about-us" class="nav-link">About Us</RouterLink>
-			<RouterLink to="/crop" class="nav-link">Crop</RouterLink>
-			<RouterLink to="/result" class="nav-link">Result</RouterLink>
+			<RouterLink to="/#how-it-works" class="nav-link">How it Works</RouterLink>
+			<!-- <RouterLink to="/crop" class="nav-link">Crop</RouterLink>
+			<RouterLink to="/result" class="nav-link">Result</RouterLink> -->
 			<div class="actions">
-				<Button to="/" class="secondary alternate" small>Learn</Button>
+				<!-- <Button to="/" class="secondary alternate" small>Learn</Button> -->
 				<Button to="/convert" class="primary alternate" small>Convert</Button>
 			</div>
 		</nav>
@@ -36,10 +37,11 @@ function toggleMenu(event) {
 		<div v-if="show" class="responsive-nav">
 			<RouterLink to="/" class="nav-link secondary">Home</RouterLink>
 			<RouterLink to="/about-us" class="nav-link secondary">About Us</RouterLink>
-			<RouterLink to="/crop" class="nav-link secondary">Crop</RouterLink>
-			<RouterLink to="/result" class="nav-link secondary">Result</RouterLink>
+			<RouterLink to="/#how-it-works" class="nav-link secondary">How it Works</RouterLink>
+			<!-- <RouterLink to="/crop" class="nav-link secondary">Crop</RouterLink>
+			<RouterLink to="/result" class="nav-link secondary">Result</RouterLink> -->
 			<div class="responsive-nav-actions">
-				<Button to="/" class="secondary full" small>Learn</Button>
+				<!-- <Button to="/" class="secondary full" small>Learn</Button> -->
 				<Button to="/convert" class="primary full" small>Convert</Button>
 			</div>
 		</div>

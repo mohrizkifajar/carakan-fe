@@ -3,17 +3,16 @@ import { ref, watchEffect, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import Cropper from 'cropperjs'
 import Content from '../components/Content.vue'
-import { image as store } from '../store/image.js'
+import store from '../store'
 
-const image = ref()
-const url = ref('')
+const image = ref(null)
 let cropper = null
 const router = useRouter()
 
 async function crop(event) {
 	const cropped = cropper.getCroppedCanvas().toDataURL()
 
-	store.set(1, cropped)
+	store.set('cropped', cropped)
 	router.push('/result')
 }
 
@@ -32,7 +31,7 @@ watchEffect(() => {
 })
 
 onMounted(() => {
-	image.value.src = store.get(0)
+	image.value.src = store.get('captured')
 })
 </script>
 
