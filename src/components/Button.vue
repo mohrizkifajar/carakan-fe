@@ -26,8 +26,7 @@ defineProps({
     color: #fff;
   }
   .btn.primary:hover {
-    background-color: transparent;
-    color: #000;
+    background-color: #2649D5;
   }
   .btn.secondary {
     border: 1px solid var(--neutral-color);

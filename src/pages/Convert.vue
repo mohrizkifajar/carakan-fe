@@ -55,12 +55,7 @@ watchEffect(() => {
 
 <template>
   <Content>
-    <Navigation
-      previous="Home"
-      previousLink="/"
-      next="Pangkas"
-      nextLink="/crop"
-    />
+    <Navigation title="Home" link="/" />
 
   	<div class="container">
       <div class="video-wrapper">

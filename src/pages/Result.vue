@@ -7,12 +7,7 @@ import Navigation from '../components/Navigation.vue'
 
 <template>
   <Content>
-    <Navigation
-      previous="Pangkas"
-      previousLink="/crop"
-      next="Next"
-      nextLink="/"
-    />
+    <Navigation title="Pangkas" link="/crop" />
 
     <div class="container">
       <Suspense>

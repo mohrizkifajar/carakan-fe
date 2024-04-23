@@ -1,37 +1,36 @@
 <script setup>
 defineProps({
-  previous: String,
-  previousLink: String,
-  next: String,
-  nextLink: String,
+  title: String,
+  link: String,
 })
 </script>
 
 <template>
   <div class="navigation">
-      <RouterLink :to="previousLink" class="link">
-        <img src="/left-arrow.svg" alt="Left" />
-        <span>{{ previous }}</span>
-      </RouterLink>
-
-      <RouterLink :to="nextLink" class="link">
-        <span>{{ next }}</span>
-        <img src="/right-arrow.svg" alt="Right" />
-      </RouterLink>
-    </div>
+    <RouterLink :to="link" class="link">
+      <img src="/left-arrow.png" alt="Left" />
+      <span>{{ title }}</span>
+    </RouterLink>
+  </div>
 </template>
 
 <style>
   .navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 16px;
   }
   .link {
     text-decoration: none;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    background-color: #eee;
+    box-shadow: 0 1px 3px 0px rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   .link span {
     font-size: 12px;

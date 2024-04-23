@@ -15,7 +15,7 @@ import Button from './Button.vue'
     </div>
 
     <div class="placeholder-image">
-      <img src="/hero.jpeg" alt="Hero" />
+      <img src="/javanese_script.jpg" alt="Hero" />
     </div>
   </div>
 </template>
@@ -52,12 +52,27 @@ import Button from './Button.vue'
     gap: 8px;
   }
   .placeholder-image {
+    position: relative;
     display: flex;
     justify-content: center;
     width: 50%;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  .placeholder-image::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(1px);
+    box-shadow: 0 1px 3px 0px rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   img {
-    width: 80%;
+    width: 100%;
   }
 
   @media screen and (max-width: 640px) {

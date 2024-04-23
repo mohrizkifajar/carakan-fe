@@ -84,7 +84,13 @@ const toggleMenu = (event) => {
     display: none;
   }
   .menu-toggle {
+    width: 24px;
+    height: 24px;
     display: none;
+  }
+  .menu-toggle img {
+    width: 100%;
+    height: 100%;
   }
 
   @media screen and (max-width: 640px) {

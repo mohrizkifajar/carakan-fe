@@ -38,12 +38,7 @@ onMounted(() => {
 
 <template>
   <Content>
-    <Navigation
-      previous="Pindai"
-      previousLink="/convert"
-      next="Konversi"
-      nextLink="/result"
-    />
+    <Navigation title="Pindai" link="/convert" />
 
     <div class="container">
       <div class="crop-wrapper">
