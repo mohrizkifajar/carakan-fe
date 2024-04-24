@@ -15,7 +15,10 @@ import Button from './Button.vue'
     </div>
 
     <div class="placeholder-image">
-      <img src="/javanese_script.jpg" alt="Hero" />
+      <figure>
+        <img src="/javanese_script.jpg" alt="Hero" />
+        <div class="box"></div>
+      </figure>
     </div>
   </div>
 </template>
@@ -57,20 +60,35 @@ import Button from './Button.vue'
     justify-content: center;
     width: 50%;
     padding: 24px;
+    background-color: var(--background-light);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
-  .placeholder-image::after {
+  figure {
+    position: relative;
+    width: 100%;
+  }
+  .box {
+    position: absolute;
+    top: 1px;
+    left: 30px;
+    width: 30px;
+    height: 16px;
+    border: 1px solid var(--primary-color);
+  }
+  /*figure::after {
     content: '';
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(1px);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(0px) saturate(150%);
     box-shadow: 0 1px 3px 0px rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  }
+  }*/
   img {
     width: 100%;
   }

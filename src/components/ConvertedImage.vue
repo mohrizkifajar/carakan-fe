@@ -15,7 +15,7 @@ const convertImage = async () => {
   })
 
   const data = await response.json()
-  store.set('converted', data.data)
+  store.set('converted', data.data.image_url)
 }
 
 await convertImage()
