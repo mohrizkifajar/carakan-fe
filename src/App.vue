@@ -1,11 +1,13 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import Header from './components/Header.vue'
 import store from './store'
 
+const header = ref(null)
+
 onMounted(() => {
   window.onscroll = () => {
-    if (window.scrollY > 0) {
+    if (window.scrollY > header.value.offsetTop) {
       store.set('isFixed', true)
     } else {
       store.set('isFixed', false)
@@ -15,6 +17,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <Header />
+  <Header ref="header" />
   <RouterView />
 </template>
