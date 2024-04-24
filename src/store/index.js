@@ -5,6 +5,8 @@ const store = reactive({
     captured: '',
     cropped: '',
     converted: '',
+    converted_text: '',
+    isFixed: false,
   },
   get(key) {
     return this.data[key]

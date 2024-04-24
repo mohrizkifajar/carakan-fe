@@ -5,6 +5,7 @@
   --background-light: #DADFF2;
   --secondary-color: #F1EBFF;
   --neutral-color: #4B4C52;
+  --text-dark: #04124D;
 }
 ::-webkit-scrollbar {
   width: 8px;

@@ -13,10 +13,15 @@ defineProps({
 
 <style scoped>
   .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     padding: 12px 24px;
     text-decoration: none;
     text-align: center;
     font-size: 16px;
+    font-weight: 500;
     line-height: 150%;
     transition: background-color, color, 300ms ease-in-out;
   }

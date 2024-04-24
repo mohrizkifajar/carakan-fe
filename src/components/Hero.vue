@@ -5,21 +5,24 @@ import Button from './Button.vue'
 <template>
   <div class="hero">
     <div class="content">
-      <h1>Translate with ease using Carakan</h1>
-      <p>Experience the simplicity and effectiveness of our web-based translation app.</p>
+      <h1>Membaca aksara Jawa dengan mudah</h1>
+      <p>
+        Hanacaraka meng<b>konversi</b> tulisan <b>aksara Jawa</b> menjadi <b>latin</b> agar mudah untuk dibaca pengguna.
+      </p>
 
       <div class="actions">
-        <Button to="/convert" class="primary">Get Started</Button>
-        <Button to="/" class="secondary">Learn More</Button>
+        <Button to="/convert" class="primary">
+          <img src="/translate.png" alt="Translate" style="width: 28px;" />
+          Konversi
+        </Button>
       </div>
     </div>
 
-    <div class="placeholder-image">
+    <!-- <div class="placeholder-image">
       <figure>
         <img src="/javanese_script.jpg" alt="Hero" />
-        <div class="box"></div>
       </figure>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -29,7 +32,7 @@ import Button from './Button.vue'
     flex-direction: row;
     align-items: center;
     gap: 32px;
-    min-height: 90vh;
+    min-height: 100vh;
   }
   .content {
     width: 50%;
@@ -49,6 +52,10 @@ import Button from './Button.vue'
     color: #000;
     margin-bottom: 32px;
   }
+  b {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
   .actions {
     display: flex;
     align-items: center;
@@ -64,31 +71,8 @@ import Button from './Button.vue'
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   figure {
-    position: relative;
     width: 100%;
   }
-  .box {
-    position: absolute;
-    top: 1px;
-    left: 30px;
-    width: 30px;
-    height: 16px;
-    border: 1px solid var(--primary-color);
-  }
-  /*figure::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-    border-radius: 8px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-    background-color: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(0px) saturate(150%);
-    box-shadow: 0 1px 3px 0px rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  }*/
   img {
     width: 100%;
   }
@@ -96,7 +80,7 @@ import Button from './Button.vue'
   @media screen and (max-width: 640px) {
     .hero {
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
     .content {
       width: 100%;

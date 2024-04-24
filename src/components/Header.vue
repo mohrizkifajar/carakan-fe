@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import Button from './Button.vue'
+import store from '../store'
 
 const show = ref(false)
 
@@ -10,18 +11,17 @@ const toggleMenu = (event) => {
 </script>
 
 <template>
-  <header>
+  <header :class="{ fixed: store.get('isFixed') }">
     <RouterLink to="/" class="logo">
       <img src="/logo.png" alt="Hanacaraka" />
     </RouterLink>
 
     <nav>
-      <RouterLink to="/" class="nav-link">Home</RouterLink>
-      <RouterLink to="/about-us" class="nav-link">About Us</RouterLink>
-      <RouterLink to="/#how-it-works" class="nav-link">How it Works</RouterLink>
+      <RouterLink to="/" class="nav-link">Beranda</RouterLink>
+      <RouterLink to="/about-us" class="nav-link">Tentang Aplikasi</RouterLink>
 
       <div class="actions">
-        <Button to="/convert" class="primary alternate" small>Convert</Button>
+        <Button to="/convert" class="primary alternate" small>Konversi</Button>
       </div>
     </nav>
 
@@ -31,21 +31,30 @@ const toggleMenu = (event) => {
     </div>
   </header>
 
-  <Transition>
+  <Transition name="slide">
     <div v-show="show" class="responsive-nav">
-      <RouterLink to="/" class="nav-link secondary">Home</RouterLink>
-      <RouterLink to="/about-us" class="nav-link secondary">About Us</RouterLink>
-      <RouterLink to="/#how-it-works" class="nav-link secondary">How it Works</RouterLink>
+      <RouterLink to="/" class="nav-link secondary">Beranda</RouterLink>
+      <RouterLink to="/about-us" class="nav-link secondary">Tentang Aplikasi</RouterLink>
 
       <div class="responsive-nav-actions">
-        <Button to="/convert" class="primary full" small>Convert</Button>
+        <Button to="/convert" class="primary full" small>Konversi</Button>
       </div>
     </div>
   </Transition>
 </template>
 
 <style scoped>
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: all 0.5s ease;
+  }
+  .slide-enter-from,
+  .slide-leave-to {
+    transform: translateY(-100%);
+  }
   header {
+    position: relative;
+    z-index: 20;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,6 +62,10 @@ const toggleMenu = (event) => {
     height: 72px;
     padding: 0 64px;
     background-color: var(--primary-color);
+    transition: all 0.5s ease;
+  }
+  .fixed {
+    position: fixed;
   }
   .logo {
     display: flex;
@@ -69,7 +82,7 @@ const toggleMenu = (event) => {
   .nav-link {
     text-decoration: none;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     color: #fff;
   }
   .nav-link.secondary {
@@ -105,7 +118,7 @@ const toggleMenu = (event) => {
       display: none;
     }
     .responsive-nav {
-      position: absolute;
+      position: sticky;
       z-index: 10;
       top: 64px;
       left: 0;

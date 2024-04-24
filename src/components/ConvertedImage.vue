@@ -16,6 +16,7 @@ const convertImage = async () => {
 
   const data = await response.json()
   store.set('converted', data.data.image_url)
+  store.set('converted_text', data.data.converted_text)
 }
 
 await convertImage()
@@ -26,6 +27,8 @@ await convertImage()
     <div class="result-image">
       <img :src="store.get('converted')" />
     </div>
+
+    <p class="converted_text">{{ store.get('converted_text') }}</p>
 
     <a class="result-btn" :href="store.get('converted')" download="output" target="_blank">
       <img src="/download.png" />
@@ -39,7 +42,7 @@ await convertImage()
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 16px;
     width: 50%;
     height: 70vh;
     padding: 12px;
@@ -51,11 +54,20 @@ await convertImage()
   .result-image {
     width: 100%;
     height: 80%;
+    background-color: #fff;
   }
   .result-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+  .converted_text {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--text-dark);
   }
   .result-btn {
     display: flex;

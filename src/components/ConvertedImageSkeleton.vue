@@ -2,13 +2,17 @@
   <div class="result-wrapper">
     <div class="result-image"></div>
 
+    <p></p>
+
     <a class="result-btn"></a>
   </div>
 </template>
 
 <style scoped>
-  .result-wrapper {
-    /*background-color: #fff;*/
+  p {
+    width: 100%;
+    height: 16px;
+    background-color: #fff;
   }
   .result-image {
     background-color: #fff;
