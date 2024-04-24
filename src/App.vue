@@ -3,10 +3,10 @@ import { onMounted } from 'vue'
 import Header from './components/Header.vue'
 import store from './store'
 
-const header = document.querySelector('header')
-
 onMounted(() => {
   window.onscroll = () => {
+    const header = document.querySelector('header')
+
     if (window.scrollY > header.offsetTop) {
       store.set('isFixed', true)
     } else {
