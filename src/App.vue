@@ -7,7 +7,7 @@ onMounted(() => {
   window.onscroll = () => {
     const header = document.querySelector('header')
 
-    if (window.scrollY > header.offsetTop) {
+    if (window.scrollY > header.offsetBottom) {
       store.set('isFixed', true)
     } else {
       store.set('isFixed', false)
