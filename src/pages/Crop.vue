@@ -63,6 +63,7 @@ onMounted(() => {
   .crop-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     gap: 24px;
     width: 50%;
@@ -71,7 +72,6 @@ onMounted(() => {
     border-radius: 8px;
     background-color: var(--background-light);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    overflow: hidden;
   }
   .crop-image {
     width: 100%;

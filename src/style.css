@@ -22,11 +22,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: inherit;
+  scroll-behavior: smooth;
 }
 body {
   font-family: 'Montserrat', sans-serif;
   max-width: 1440px;
   width: 100%;
+  background-color: #fff;
 }
 .cropper-container {
   width: 100% !important;

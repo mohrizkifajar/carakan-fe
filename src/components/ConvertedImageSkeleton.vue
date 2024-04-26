@@ -11,10 +11,12 @@
 <style scoped>
   p {
     width: 100%;
-    height: 16px;
+    height: 20px;
+    border-radius: 4px;
     background-color: #fff;
   }
   .result-image {
+    border-radius: 4px;
     background-color: #fff;
     animation: pulse 1s linear infinite;
   }

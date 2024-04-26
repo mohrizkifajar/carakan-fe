@@ -42,7 +42,6 @@ await convertImage()
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
     width: 50%;
     height: 70vh;
     padding: 12px;

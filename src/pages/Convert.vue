@@ -120,6 +120,7 @@ watchEffect(() => {
     }
     .video-wrapper {
       width: 100%;
+      padding: 12px 0;
     }
   }
 </style>
