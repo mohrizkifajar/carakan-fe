@@ -26,8 +26,8 @@ onMounted(() => {
       </RouterLink>
 
       <nav>
-        <RouterLink to="/" class="nav-link">Beranda</RouterLink>
-        <RouterLink to="/about-us" class="nav-link">Tentang Aplikasi</RouterLink>
+        <a href="#home" class="nav-link">Beranda</a>
+        <a href="#instruction" class="nav-link">Petunjuk</a>
 
         <div class="actions">
           <Button to="/convert" class="primary alternate" small>Konversi</Button>
@@ -42,8 +42,7 @@ onMounted(() => {
 
     <Transition name="slide">
       <div v-show="show" class="responsive-nav">
-        <RouterLink to="/" class="nav-link secondary">Beranda</RouterLink>
-        <RouterLink to="/about-us" class="nav-link secondary">Tentang Aplikasi</RouterLink>
+        <a href="#home" class="nav-link secondary">Beranda</a>
         <a href="#instruction" class="nav-link secondary">Petunjuk</a>
 
         <div class="responsive-nav-actions">

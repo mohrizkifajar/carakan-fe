@@ -3,11 +3,11 @@ import Button from './Button.vue'
 </script>
 
 <template>
-  <div class="hero">
+  <div class="hero" id="home">
     <div class="content">
       <h1>Membaca aksara Jawa dengan mudah</h1>
       <p>
-        Hanacaraka meng<b>konversi</b> tulisan <b>aksara Jawa</b> menjadi <b>latin</b> agar mudah untuk dibaca pengguna.
+        <span>Hanacaraka</span> meng<b>konversi</b> tulisan <b>aksara Jawa</b> menjadi <b>latin</b> agar mudah untuk dibaca pengguna.
       </p>
 
       <div class="actions">
@@ -33,6 +33,7 @@ import Button from './Button.vue'
     align-items: center;
     gap: 32px;
     min-height: 100vh;
+    scroll-margin-top: 84px;
   }
   .content {
     width: 50%;
@@ -55,6 +56,9 @@ import Button from './Button.vue'
   b {
     font-weight: 600;
     color: var(--primary-color);
+  }
+  span {
+    font-weight: 700;
   }
   .actions {
     display: flex;
@@ -90,6 +94,9 @@ import Button from './Button.vue'
     }
     p {
       font-size: 16px;
+    }
+    span {
+      font-size: 18px;
     }
     .placeholder-image {
       width: 100%;

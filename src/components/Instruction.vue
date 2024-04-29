@@ -1,11 +1,25 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const step = ref(1)
 
 const move = (no) => {
   step.value = no
 }
+
+const transition = async () => {
+  setInterval(() => {
+    if (step.value == 3) {
+      step.value = 1
+    } else {
+      step.value += 1
+    }
+  }, 5000)
+}
+
+onMounted(() => {
+  transition()
+})
 </script>
 
 <template>
@@ -15,18 +29,18 @@ const move = (no) => {
     <div class="instructions">
       <Transition name="fade">
         <div v-if="step == 1" class="step">
-          <img src="/step_01.png" alt="Step 1" />
-          <h4>Pindai tulisan aksara Jawa pada kertas</h4>
+          <h4>1. Pindai tulisan aksara Jawa pada kertas</h4>
+          <img src="/step_01.jpg" alt="Step 1" />
         </div>
 
         <div v-else-if="step == 2" class="step">
-          <img src="/step_01.png" alt="Step 2" />
-          <h4>Lakukan pemangkasan pada gambar</h4>
+          <h4>2. Lakukan pemangkasan pada gambar</h4>
+          <img src="/step_02.jpg" alt="Step 2" />
         </div>
 
         <div v-else class="step">
-          <img src="/step_01.png" alt="Step 3" />
-          <h4>Lihat dan simpan hasil konversi</h4>
+          <h4>3. Lihat dan simpan hasil konversi</h4>
+          <img src="/step_03.jpg" alt="Step 3" />
         </div>
       </Transition>
     </div>
@@ -69,12 +83,12 @@ const move = (no) => {
   .step img {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 24px;
   }
   .step h4 {
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 24px;
   }
   .nav {
     display: flex;
@@ -97,7 +111,7 @@ const move = (no) => {
       padding: 20px;
     }
     h2 {
-      font-size: 32px;
+      font-size: 28px;
     }
     p {
       font-size: 16px;
@@ -112,7 +126,7 @@ const move = (no) => {
       margin-bottom: 16px;
     }
     .step h4 {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 </style>
