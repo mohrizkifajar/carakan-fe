@@ -14,6 +14,6 @@ const store = reactive({
   set(key, value) {
     this.data[key] = value
   }
-})
+});
 
-export default store
+export default store;

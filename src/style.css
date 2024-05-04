@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #476BFA;
-  --background-light: #DADFF2;
-  --secondary-color: #F1EBFF;
-  --neutral-color: #4B4C52;
-  --text-dark: #04124D;
+  --primary-color-100: #DADFF2;
+  --primary-color-200: #B1BFF3;
+  --primary-color-500: #476BFA;
+  --primary-color-600: #2649D5;
+  --primary-color-900: #04124D;
+
+  --neutral-color-500: #737373;
+  --neutral-color-900: #171717;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -30,6 +33,24 @@ body {
   width: 100%;
   background-color: #fff;
 }
+main {
+  margin-top: 72px;
+}
+section {
+  scroll-margin-top: 72px;
+  padding: 32px 64px;
+}
 .cropper-container {
   width: 100% !important;
+}
+
+@media screen and (max-width: 640px) {
+  main {
+    margin-top: 64px;
+  }
+
+  section {
+    scroll-margin-top: 64px;
+    padding: 20px;
+  }
 }

@@ -2,8 +2,9 @@
 import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useDevicesList, useUserMedia } from '@vueuse/core'
 import { useRouter } from 'vue-router'
-import Content from '../components/Content.vue'
+import feather from 'feather-icons'
 import Navigation from '../components/Navigation.vue'
+import Section from '../components/Section.vue'
 import store from '../store'
 
 const router = useRouter()
@@ -54,7 +55,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <Content>
+  <Section>
     <Navigation title="Home" link="/" />
 
   	<div class="container">
@@ -62,13 +63,13 @@ watchEffect(() => {
         <video ref="video" autoplay></video>
 
         <button @click="take">
-          <img src="/camera.png" />
+          <span v-html="feather.icons.camera.toSvg()"></span>
         </button>
       </div>
 
       <canvas ref="canvas" width="720" height="1280"></canvas>
     </div>
-  </Content>
+  </Section>
 </template>
 
 <style scoped>
@@ -107,8 +108,10 @@ watchEffect(() => {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     cursor: pointer;
   }
-  button img {
+  button span {
     width: 24px;
+    height: 24px;
+    color: var(--primary-color);
   }
   canvas {
     display: none;

@@ -1,9 +1,13 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import feather from 'feather-icons';
 import Button from './Button.vue'
 import store from '../store'
 
 const show = ref(false)
+const menuToggle = ref(null)
+const menuIcon = feather.icons.menu.toSvg()
+const xIcon = feather.icons.x.toSvg()
 
 const toggleMenu = (event) => {
   show.value = !show.value
@@ -11,7 +15,7 @@ const toggleMenu = (event) => {
 
 onMounted(() => {
   window.onclick = (event) => {
-    if (!event.target.classList.contains('menu-toggle') && show.value) {
+    if (!menuToggle.value.contains(event.target)) {
       show.value = false
     }
   }
@@ -19,7 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header :class="{ scrolled: store.get('scrolled') }">
+  <header>
     <div class="navbar">
       <RouterLink to="/" class="logo">
         <img src="/logo.png" alt="Hanacaraka" />
@@ -27,27 +31,18 @@ onMounted(() => {
 
       <nav>
         <a href="#home" class="nav-link">Beranda</a>
-        <a href="#instruction" class="nav-link">Petunjuk</a>
-
-        <div class="actions">
-          <Button to="/convert" class="primary alternate" small>Konversi</Button>
-        </div>
+        <a href="#how-to-use" class="nav-link">Petunjuk</a>
       </nav>
 
-      <div class="menu-toggle">
-        <img src="/close.png" alt="Close Menu" class="menu-toggle" v-if="show" @click="toggleMenu" />
-        <img src="/menu.png" alt="Open Menu" class="menu-toggle" v-else @click="toggleMenu" />
+      <div class="menu-toggle" ref="menuToggle" @click="toggleMenu">
+        <span v-html="menuIcon"></span>
       </div>
     </div>
 
     <Transition name="slide">
       <div v-show="show" class="responsive-nav">
         <a href="#home" class="nav-link secondary">Beranda</a>
-        <a href="#instruction" class="nav-link secondary">Petunjuk</a>
-
-        <div class="responsive-nav-actions">
-          <Button to="/convert" class="primary full" small>Konversi</Button>
-        </div>
+        <a href="#how-to-use" class="nav-link secondary">Petunjuk</a>
       </div>
     </Transition>
   </header>
@@ -69,8 +64,6 @@ onMounted(() => {
     left: 0;
     width: 100%;
     height: 72px;
-  }
-  header.scrolled {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   .navbar {
@@ -82,7 +75,7 @@ onMounted(() => {
     width: 100%;
     height: 100%;
     padding: 0 64px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-500);
   }
   .logo {
     display: flex;
@@ -118,10 +111,16 @@ onMounted(() => {
     height: 24px;
     display: none;
   }
-  .menu-toggle img {
+  .menu-toggle span {
+    display: inline-block;
     width: 100%;
     height: 100%;
+    color: #fff;
   }
+  /*.menu-toggle img {
+    width: 100%;
+    height: 100%;
+  }*/
 
   @media screen and (max-width: 640px) {
     header {
@@ -145,7 +144,7 @@ onMounted(() => {
       width: 100%;
       padding: 0 20px;
       padding-top: 16px;
-      padding-bottom: 64px;
+      padding-bottom: 32px;
       background-color: #fff;
       box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     }

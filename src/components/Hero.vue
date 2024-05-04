@@ -3,27 +3,26 @@ import Button from './Button.vue'
 </script>
 
 <template>
-  <div class="hero" id="home">
-    <div class="content">
+  <section class="hero" id="home">
+    <div class="hero-content">
       <h1>Membaca aksara Jawa dengan mudah</h1>
       <p>
-        <span>Hanacaraka</span> meng<b>konversi</b> tulisan <b>aksara Jawa</b> menjadi <b>latin</b> agar mudah untuk dibaca pengguna.
+        <span>Hanacaraka</span> meng<b>konversi</b> tulisan <b>aksara Jawa</b>
+        menjadi <b>latin</b> agar mudah untuk dibaca pengguna.
       </p>
 
-      <div class="actions">
-        <Button to="/convert" class="primary">
-          <img src="/translate.png" alt="Translate" style="width: 28px;" />
-          Konversi
-        </Button>
-      </div>
+      <Button to="/convert">
+        <img src="/translate.png" alt="Translate" style="width: 28px;" />
+        <span class="text">Konversi</span>
+      </Button>
     </div>
 
-    <!-- <div class="placeholder-image">
+    <div class="hero-image">
       <figure>
-        <img src="/javanese_script.jpg" alt="Hero" />
+        <img src="/illust.jpg" alt="Hero" />
       </figure>
-    </div> -->
-  </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
@@ -31,53 +30,42 @@ import Button from './Button.vue'
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 32px;
     min-height: 100vh;
-    scroll-margin-top: 84px;
   }
-  .content {
+  .hero-content {
     width: 50%;
     padding-right: 24px;
   }
-  h1 {
+  .hero-content h1 {
     font-size: 56px;
     font-weight: 700;
     line-height: 120%;
-    color: #000;
+    color: var(--neutral-color-900);
     margin-bottom: 24px;
   }
-  p {
+  .hero-content p {
     font-size: 18px;
     font-weight: 400;
     line-height: 150%;
-    color: #000;
+    color: var(--neutral-color-900);
     margin-bottom: 32px;
   }
   b {
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--primary-color-500);
   }
   span {
     font-weight: 700;
   }
-  .actions {
+  .hero-image {
     display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .placeholder-image {
-    position: relative;
-    display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 50%;
-    padding: 24px;
-    background-color: var(--background-light);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
-  figure {
-    width: 100%;
+  .hero-image figure {
+    width: 480px;
   }
-  img {
+  .hero-image img {
     width: 100%;
   }
 
@@ -85,23 +73,27 @@ import Button from './Button.vue'
     .hero {
       flex-direction: column;
       justify-content: flex-start;
+      gap: 32px;
     }
-    .content {
+    .hero-content {
       width: 100%;
     }
-    h1 {
+    .hero-content h1 {
       font-size: 40px;
     }
-    p {
+    .hero-content p {
       font-size: 16px;
     }
     span {
       font-size: 18px;
     }
-    .placeholder-image {
+    .hero-image {
       width: 100%;
     }
-    img {
+    .hero-image figure {
+      width: 100%;
+    }
+    .hero-image figure img {
       width: 100%;
     }
   }

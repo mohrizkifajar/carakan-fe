@@ -2,8 +2,9 @@
 import { onMounted, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import Cropper from 'cropperjs'
-import Content from '../components/Content.vue'
+import feather from 'feather-icons'
 import Navigation from '../components/Navigation.vue'
+import Section from '../components/Section.vue'
 import store from '../store'
 
 let cropper = null
@@ -37,7 +38,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Content>
+  <Section>
     <Navigation title="Pindai" link="/convert" />
 
     <div class="container">
@@ -47,11 +48,11 @@ onMounted(() => {
         </div>
 
         <button @click="crop">
-          <img src="/crop.png" />
+          <span v-html="feather.icons.crop.toSvg()"></span>
         </button>
       </div>
     </div>
-  </Content>
+  </Section>
 </template>
 
 <style scoped>
@@ -94,6 +95,11 @@ onMounted(() => {
     background-color: #fff;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     cursor: pointer;
+  }
+  button span {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
   }
 
   @media screen and (max-width: 640px) {

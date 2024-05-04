@@ -1,12 +1,12 @@
 <script setup>
-import Content from '../components/Content.vue'
 import ConvertedImage from '../components/ConvertedImage.vue'
 import ConvertedImageSkeleton from '../components/ConvertedImageSkeleton.vue'
 import Navigation from '../components/Navigation.vue'
+import Section from '../components/Section.vue'
 </script>
 
 <template>
-  <Content>
+  <Section>
     <Navigation title="Pangkas" link="/crop" />
 
     <div class="container">
@@ -18,7 +18,7 @@ import Navigation from '../components/Navigation.vue'
         </template>
       </Suspense>
     </div>
-  </Content>
+  </Section>
 </template>
 
 <style scoped>

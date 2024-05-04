@@ -3,12 +3,14 @@ defineProps({
   title: String,
   link: String,
 })
+
+import feather from 'feather-icons'
 </script>
 
 <template>
   <div class="navigation">
     <RouterLink :to="link" class="link">
-      <img src="/left-arrow.png" alt="Left" />
+      <span v-html="feather.icons['arrow-left'].toSvg()" class="icon"></span>
       <span>{{ title }}</span>
     </RouterLink>
   </div>
@@ -36,5 +38,9 @@ defineProps({
     font-size: 12px;
     font-weight: 600;
     color: var(--neutral-color);
+  }
+  .link .icon {
+    width: 24px;
+    height: 24px;
   }
 </style>

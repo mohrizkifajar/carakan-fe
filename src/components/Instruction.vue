@@ -7,7 +7,7 @@ const move = (no) => {
   step.value = no
 }
 
-const transition = async () => {
+const slideshow = () => {
   setInterval(() => {
     if (step.value == 3) {
       step.value = 1
@@ -18,38 +18,36 @@ const transition = async () => {
 }
 
 onMounted(() => {
-  transition()
+  slideshow()
 })
 </script>
 
 <template>
-  <div id="instruction" class="instruction">
-    <h2>Cara Penggunaan</h2>
+  <h2>Cara Penggunaan</h2>
 
-    <div class="instructions">
-      <Transition name="fade">
-        <div v-if="step == 1" class="step">
-          <h4>1. Pindai tulisan aksara Jawa pada kertas</h4>
-          <img src="/step_01.jpg" alt="Step 1" />
-        </div>
+  <div class="instructions">
+    <Transition name="fade">
+      <div v-if="step == 1" class="step">
+        <h4>1. Pindai tulisan aksara Jawa pada kertas</h4>
+        <img src="/step_01.jpg" alt="Step 1" />
+      </div>
 
-        <div v-else-if="step == 2" class="step">
-          <h4>2. Lakukan pemangkasan pada gambar</h4>
-          <img src="/step_02.jpg" alt="Step 2" />
-        </div>
+      <div v-else-if="step == 2" class="step">
+        <h4>2. Lakukan pemangkasan pada gambar</h4>
+        <img src="/step_02.jpg" alt="Step 2" />
+      </div>
 
-        <div v-else class="step">
-          <h4>3. Lihat dan simpan hasil konversi</h4>
-          <img src="/step_03.jpg" alt="Step 3" />
-        </div>
-      </Transition>
-    </div>
+      <div v-else class="step">
+        <h4>3. Lihat dan simpan hasil konversi</h4>
+        <img src="/step_03.jpg" alt="Step 3" />
+      </div>
+    </Transition>
+  </div>
 
-    <div class="nav">
-      <div class="dot" :class="{ active: step == 1 }" @click="move(1)"></div>
-      <div class="dot" :class="{ active: step == 2 }" @click="move(2)"></div>
-      <div class="dot" :class="{ active: step == 3 }" @click="move(3)"></div>
-    </div>
+  <div class="nav">
+    <div class="dot" :class="{ active: step == 1 }" @click="move(1)"></div>
+    <div class="dot" :class="{ active: step == 2 }" @click="move(2)"></div>
+    <div class="dot" :class="{ active: step == 3 }" @click="move(3)"></div>
   </div>
 </template>
 
@@ -61,11 +59,6 @@ onMounted(() => {
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
-  }
-  .instruction {
-    padding: 32px 64px;
-    scroll-margin-top: 64px;
-    background-color: var(--background-light);
   }
   h2 {
     font-size: 48px;
@@ -79,22 +72,31 @@ onMounted(() => {
   }
   .step {
     position: absolute;
-  }
-  .step img {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    border-radius: 8px;
+    height: 100%;
   }
   .step h4 {
+    width: 100%;
     font-size: 20px;
     font-weight: 400;
     text-align: left;
     margin-bottom: 24px;
   }
+  .step img {
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
+    object-position: top;
+    border-radius: 8px;
+  }
   .nav {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 24px;
   }
   .dot {
     width: 12px;
@@ -107,23 +109,11 @@ onMounted(() => {
   }
 
   @media screen and (max-width: 640px) {
-    .instruction {
-      padding: 20px;
-    }
     h2 {
       font-size: 28px;
     }
-    p {
-      font-size: 16px;
-    }
     .instructions {
       width: 100%;
-    }
-    .step {
-      width: 100%;
-    }
-    .step img {
-      margin-bottom: 16px;
     }
     .step h4 {
       font-size: 16px;

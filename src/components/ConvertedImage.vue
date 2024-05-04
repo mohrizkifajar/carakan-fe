@@ -1,5 +1,6 @@
 <script setup>
 import { v4 as uuid } from 'uuid'
+import feather from 'feather-icons'
 import store from '../store'
 
 const convertImage = async () => {
@@ -31,7 +32,7 @@ await convertImage()
     <p class="converted_text">{{ store.get('converted_text') }}</p>
 
     <a class="result-btn" :href="store.get('converted')" download="output" target="_blank">
-      <img src="/download.png" />
+      <span v-html="feather.icons['download-cloud'].toSvg()"></span>
     </a>
   </div>
 </template>
@@ -80,6 +81,11 @@ await convertImage()
     background-color: #fff;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     cursor: pointer;
+  }
+  .result-btn span {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
   }
 
   @media screen and (max-width: 640px) {
