@@ -10,7 +10,7 @@
     background-color: var(--primary-color-200);
   }
   footer p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-align: center;
     color: var(--primary-color-900);
@@ -21,9 +21,7 @@
       padding: 20px;
     }
     footer p {
-      font-size: 16px;
-      font-weight: 500;
-      text-align: center;
+      font-size: 12px;
     }
   }
 </style>

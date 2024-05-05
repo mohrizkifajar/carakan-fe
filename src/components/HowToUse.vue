@@ -10,8 +10,8 @@ const play = (event) => {
 </script>
 
 <template>
-  <section class="how-to-use" id="how-to-use">
-    <div class="content">
+  <section class="how-to-use">
+    <div class="how-to-use-content">
       <h2>Cara Penggunaan</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -19,7 +19,7 @@ const play = (event) => {
       </p>
     </div>
 
-    <div class="video">
+    <div class="how-to-use-video">
       <iframe
         src="https://www.youtube.com/embed/Z2JzsulfMtU?si=RguFi5yKxsIpFHvI&amp;controls=0"
         title="YouTube video player"
@@ -43,40 +43,40 @@ const play = (event) => {
     display: flex;
     background-color: var(--primary-color-100);
   }
-  .content {
+  .how-to-use-content {
     width: 50%;
   }
-  .content h2 {
-    margin-bottom: 24px;
+  .how-to-use-content h2 {
     font-size: 40px;
     font-weight: 700;
     color: var(--neutral-color-900);
+    margin-bottom: 24px;
   }
-  .content p {
+  .how-to-use-content p {
     font-size: 18px;
     font-weight: 400;
     color: var(--neutral-color-900);
   }
-  .video {
+  .how-to-use-video {
     position: relative;
     width: 50%;
     aspect-ratio: 16/9;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
-  iframe {
+  .how-to-use-video iframe {
     width: 100%;
     aspect-ratio: 16/9;
   }
-  img {
+  .how-to-use-video img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     aspect-ratio: 16/9;
   }
-  .play {
+  .how-to-use-video .play {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -97,24 +97,19 @@ const play = (event) => {
     .how-to-use {
       flex-direction: column;
     }
-    .content {
+    .how-to-use-content {
       width: 100%;
       margin-bottom: 24px;
     }
-    .content h2 {
-      margin-bottom: 16px;
+    .how-to-use-content h2 {
       font-size: 32px;
+      margin-bottom: 16px;
     }
-    .content p {
+    .how-to-use-content p {
       font-size: 16px;
     }
-    .video {
-      position: relative;
+    .how-to-use-video {
       width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
   }
 </style>

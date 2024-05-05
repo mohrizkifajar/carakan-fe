@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
   to: String,
-})
+});
 </script>
 
 <template>
@@ -20,7 +20,7 @@ defineProps({
     border-radius: 4px;
     border: 1px solid var(--primary-color-500);
     background-color: var(--primary-color-500);
-    transition: all 300ms ease-in-out;
+    transition: all 300ms ease;
     text-decoration: none;
   }
   .btn .text {

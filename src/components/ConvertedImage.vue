@@ -1,7 +1,7 @@
 <script setup>
-import { v4 as uuid } from 'uuid'
-import feather from 'feather-icons'
-import store from '../store'
+import { v4 as uuid } from 'uuid';
+import feather from 'feather-icons';
+import store from '../store';
 
 const convertImage = async () => {
   const response = await fetch('https://fajar.pythonanywhere.com/convert', {
@@ -13,14 +13,14 @@ const convertImage = async () => {
       image: store.get('cropped'),
       filename: uuid() + '.png',
     }),
-  })
+  });
 
-  const data = await response.json()
-  store.set('converted', data.data.image_url)
-  store.set('converted_text', data.data.converted_text)
+  const data = await response.json();
+  store.set('converted', data.data.image_url);
+  store.set('converted_text', data.data.converted_text);
 }
 
-await convertImage()
+await convertImage();
 </script>
 
 <template>
@@ -47,7 +47,7 @@ await convertImage()
     height: 70vh;
     padding: 12px;
     border-radius: 8px;
-    background-color: var(--background-light);
+    background-color: var(--primary-color-100);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     overflow: hidden;
   }
@@ -67,7 +67,7 @@ await convertImage()
     font-weight: 600;
     text-align: left;
     text-transform: uppercase;
-    color: var(--text-dark);
+    color: var(--primary-color-900);
   }
   .result-btn {
     display: flex;
@@ -85,7 +85,7 @@ await convertImage()
   .result-btn span {
     width: 24px;
     height: 24px;
-    color: var(--primary-color);
+    color: var(--primary-color-500);
   }
 
   @media screen and (max-width: 640px) {

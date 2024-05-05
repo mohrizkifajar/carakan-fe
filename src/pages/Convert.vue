@@ -1,20 +1,20 @@
 <script setup>
-import { computed, onMounted, ref, watchEffect } from 'vue'
-import { useDevicesList, useUserMedia } from '@vueuse/core'
-import { useRouter } from 'vue-router'
-import feather from 'feather-icons'
-import Navigation from '../components/Navigation.vue'
-import Section from '../components/Section.vue'
-import store from '../store'
+import { computed, onMounted, ref, watchEffect } from 'vue';
+import { useDevicesList, useUserMedia } from '@vueuse/core';
+import { useRouter } from 'vue-router';
+import feather from 'feather-icons';
+import Navigation from '../components/Navigation.vue';
+import Section from '../components/Section.vue';
+import store from '../store';
 
-const router = useRouter()
-const video = ref(null)
-const canvas = ref(null)
+const router = useRouter();
+const video = ref(null);
+const canvas = ref(null);
 
 const { videoInputs: cameras } = useDevicesList({
   requestPermission: true,
-})
-const currentCamera = computed(() => cameras.value[0]?.deviceId)
+});
+const currentCamera = computed(() => cameras.value[0]?.deviceId);
 
 const { stream, start } = useUserMedia({
   constraints: {
@@ -25,33 +25,33 @@ const { stream, start } = useUserMedia({
       facingMode: 'environment',
     },
   },
-})
+});
 
 const take = (event) => {
-  video.value.pause()
+  video.value.pause();
 
-  const context = canvas.value.getContext('2d')
-  context.fillStyle = '#fff'
-  context.fillRect(0, 0, canvas.value.width, canvas.value.height)
+  const context = canvas.value.getContext('2d');
+  context.fillStyle = '#fff';
+  context.fillRect(0, 0, canvas.value.width, canvas.value.height);
   context.drawImage(
     video.value,
     (canvas.value.width - video.value.videoWidth) / 2,
     (canvas.value.height - video.value.videoHeight) / 2
-  )
+  );
 
-  store.set('captured', canvas.value.toDataURL())
-  router.push('/crop')
+  store.set('captured', canvas.value.toDataURL());
+  router.push('/crop');
 }
 
 onMounted(() => {
-  start()
-})
+  start();
+});
 
 watchEffect(() => {
   if (video.value) {
-    video.value.srcObject = stream.value
+    video.value.srcObject = stream.value;
   }
-})
+});
 </script>
 
 <template>
@@ -88,7 +88,7 @@ watchEffect(() => {
     height: 70vh;
     padding: 12px;
     border-radius: 8px;
-    background-color: var(--background-light);
+    background-color: var(--primary-color-100);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   video {
@@ -111,7 +111,7 @@ watchEffect(() => {
   button span {
     width: 24px;
     height: 24px;
-    color: var(--primary-color);
+    color: var(--primary-color-500);
   }
   canvas {
     display: none;

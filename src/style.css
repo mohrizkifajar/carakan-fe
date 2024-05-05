@@ -7,6 +7,7 @@
   --primary-color-600: #2649D5;
   --primary-color-900: #04124D;
 
+  --neutral-color-100: #F5F5F5;
   --neutral-color-500: #737373;
   --neutral-color-900: #171717;
 }
@@ -24,7 +25,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: inherit;
   scroll-behavior: smooth;
 }
 body {

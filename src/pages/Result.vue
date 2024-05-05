@@ -1,8 +1,8 @@
 <script setup>
-import ConvertedImage from '../components/ConvertedImage.vue'
-import ConvertedImageSkeleton from '../components/ConvertedImageSkeleton.vue'
-import Navigation from '../components/Navigation.vue'
-import Section from '../components/Section.vue'
+import ConvertedImage from '../components/ConvertedImage.vue';
+import ConvertedImageSkeleton from '../components/ConvertedImageSkeleton.vue';
+import Navigation from '../components/Navigation.vue';
+import Section from '../components/Section.vue';
 </script>
 
 <template>

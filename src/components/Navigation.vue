@@ -2,9 +2,9 @@
 defineProps({
   title: String,
   link: String,
-})
+});
 
-import feather from 'feather-icons'
+import feather from 'feather-icons';
 </script>
 
 <template>
@@ -31,13 +31,13 @@ import feather from 'feather-icons'
     gap: 8px;
     padding: 8px 20px;
     border-radius: 9999px;
-    background-color: #eee;
+    background-color: var(--neutral-color-100);
     box-shadow: 0 1px 3px 0px rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   .link span {
     font-size: 12px;
     font-weight: 600;
-    color: var(--neutral-color);
+    color: var(--neutral-color-500);
   }
   .link .icon {
     width: 24px;

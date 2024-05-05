@@ -1,21 +1,21 @@
 <script setup>
-import { onMounted, ref, watchEffect } from 'vue'
-import { useRouter } from 'vue-router'
-import Cropper from 'cropperjs'
-import feather from 'feather-icons'
-import Navigation from '../components/Navigation.vue'
-import Section from '../components/Section.vue'
-import store from '../store'
+import { onMounted, ref, watchEffect } from 'vue';
+import { useRouter } from 'vue-router';
+import Cropper from 'cropperjs';
+import feather from 'feather-icons';
+import Navigation from '../components/Navigation.vue';
+import Section from '../components/Section.vue';
+import store from '../store';
 
-let cropper = null
-const router = useRouter()
-const image = ref(null)
+const router = useRouter();
+let cropper = null;
+const image = ref(null);
 
 const crop = async (event) => {
-  const cropped = cropper.getCroppedCanvas().toDataURL()
+  const cropped = cropper.getCroppedCanvas().toDataURL();
 
-  store.set('cropped', cropped)
-  router.push('/result')
+  store.set('cropped', cropped);
+  router.push('/result');
 }
 
 watchEffect(() => {
@@ -28,12 +28,12 @@ watchEffect(() => {
       rotatable: false,
       zoomable: false,
       background: false,
-    })
+    });
   }
-})
+});
 
 onMounted(() => {
-  image.value.src = store.get('captured')
+  image.value.src = store.get('captured');
 })
 </script>
 
@@ -71,7 +71,7 @@ onMounted(() => {
     height: 70vh;
     padding: 12px;
     border-radius: 8px;
-    background-color: var(--background-light);
+    background-color: var(--primary-color-100);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   .crop-image {
@@ -99,7 +99,7 @@ onMounted(() => {
   button span {
     width: 24px;
     height: 24px;
-    color: var(--primary-color);
+    color: var(--primary-color-500);
   }
 
   @media screen and (max-width: 640px) {

@@ -1,9 +1,9 @@
 <script setup>
-import Button from './Button.vue'
+import Button from './Button.vue';
 </script>
 
 <template>
-  <section class="hero" id="home">
+  <section class="hero">
     <div class="hero-content">
       <h1>Membaca aksara Jawa dengan mudah</h1>
       <p>
@@ -12,14 +12,14 @@ import Button from './Button.vue'
       </p>
 
       <Button to="/convert">
-        <img src="/translate.png" alt="Translate" style="width: 28px;" />
+        <img src="/convert.svg" alt="Convert" style="width: 32px;" />
         <span class="text">Konversi</span>
       </Button>
     </div>
 
     <div class="hero-image">
       <figure>
-        <img src="/illust.jpg" alt="Hero" />
+        <img src="/conversion.svg" alt="Conversion" />
       </figure>
     </div>
   </section>
@@ -28,13 +28,11 @@ import Button from './Button.vue'
 <style scoped>
   .hero {
     display: flex;
-    flex-direction: row;
     align-items: center;
     min-height: 100vh;
   }
   .hero-content {
     width: 50%;
-    padding-right: 24px;
   }
   .hero-content h1 {
     font-size: 56px;
@@ -50,12 +48,12 @@ import Button from './Button.vue'
     color: var(--neutral-color-900);
     margin-bottom: 32px;
   }
-  b {
+  .hero-content p span {
+    font-weight: 700;
+  }
+  .hero-content p b {
     font-weight: 600;
     color: var(--primary-color-500);
-  }
-  span {
-    font-weight: 700;
   }
   .hero-image {
     display: flex;
@@ -65,14 +63,13 @@ import Button from './Button.vue'
   .hero-image figure {
     width: 480px;
   }
-  .hero-image img {
+  .hero-image figure img {
     width: 100%;
   }
 
   @media screen and (max-width: 640px) {
     .hero {
       flex-direction: column;
-      justify-content: flex-start;
       gap: 32px;
     }
     .hero-content {
@@ -84,16 +81,10 @@ import Button from './Button.vue'
     .hero-content p {
       font-size: 16px;
     }
-    span {
-      font-size: 18px;
-    }
     .hero-image {
       width: 100%;
     }
     .hero-image figure {
-      width: 100%;
-    }
-    .hero-image figure img {
       width: 100%;
     }
   }
