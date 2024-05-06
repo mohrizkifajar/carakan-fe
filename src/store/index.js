@@ -1,4 +1,4 @@
-import { reactive } from 'vue'
+import { reactive } from 'vue';
 
 const store = reactive({
   data: {
@@ -6,13 +6,12 @@ const store = reactive({
     cropped: '',
     converted: '',
     converted_text: '',
-    scrolled: false,
   },
   get(key) {
     return this.data[key]
   },
   set(key, value) {
-    this.data[key] = value
+    this.data[key] = value;
   }
 });
 

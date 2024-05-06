@@ -2,10 +2,12 @@
 import { ref } from 'vue';
 import feather from 'feather-icons';
 
+const video = ref(null);
 const played = ref(false);
 
 const play = (event) => {
   played.value = true;
+  video.value.play();
 }
 </script>
 
@@ -20,19 +22,13 @@ const play = (event) => {
     </div>
 
     <div class="how-to-use-video">
-      <iframe
-        src="https://www.youtube.com/embed/Z2JzsulfMtU?si=RguFi5yKxsIpFHvI&amp;controls=0"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
+      <video src="/how_to_use.mp4" controls controlslist="nodownload nofullscreen noremoteplayback" ref="video" @ended="played=false"></video>
       <img src="/how_to_use.png" alt="How to Use" v-show="!played" />
       <span
         v-if="!played"
+        @click="play"
+        v-html="feather.icons['play-circle'].toSvg({ width: 28, height: 28 })"
         class="play"
-        v-html="feather.icons['play-circle'].toSvg({ width: 28, height: 28 })" @click="play"
       ></span>
     </div>
   </section>
@@ -65,7 +61,7 @@ const play = (event) => {
     overflow: hidden;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
-  .how-to-use-video iframe {
+  .how-to-use-video video {
     width: 100%;
     aspect-ratio: 16/9;
   }
