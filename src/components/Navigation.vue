@@ -10,7 +10,7 @@ import feather from 'feather-icons';
 <template>
   <div class="navigation">
     <RouterLink :to="link" class="link">
-      <span v-html="feather.icons['arrow-left'].toSvg()" class="icon"></span>
+      <span v-html="feather.icons['arrow-left-circle'].toSvg()" class="icon"></span>
       <span>{{ title }}</span>
     </RouterLink>
   </div>
