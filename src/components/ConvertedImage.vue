@@ -4,7 +4,7 @@ import feather from 'feather-icons';
 import store from '../store';
 
 const convertImage = async () => {
-  const response = await fetch('https://fajar.pythonanywhere.com/convert', {
+  const response = await fetch('https://8000-01hxxf7tdwnewawge69d8v7hsa.cloudspaces.litng.ai', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
