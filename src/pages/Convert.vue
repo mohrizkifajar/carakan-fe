@@ -12,7 +12,7 @@ import Navigation from '../components/Navigation.vue';
       <Suspense>
         <Camera />
 
-        <template #default>
+        <template #fallback>
           <CameraSkeleton />
         </template>
       </Suspense>
